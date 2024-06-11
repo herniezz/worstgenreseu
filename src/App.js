@@ -7,7 +7,7 @@ function App() {
 
   const shuffleVideo = async () => {
     try {
-      const response = await fetch('https://<your-heroku-app-name>.herokuapp.com/genres'); // Use Heroku app URL
+      const response = await fetch('https://blooming-sea-22678-d329885364f4.herokuapp.com/'); // Use Heroku app URL
       const data = await response.json();
       const randomVideo = data.videos[Math.floor(Math.random() * data.videos.length)];
       setCurrentVideo(randomVideo);
