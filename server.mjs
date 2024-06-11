@@ -3,7 +3,7 @@ import cors from 'cors';
 import fetch from 'node-fetch';
 
 const app = express();
-const port = 5001;
+const port = process.env.PORT || 5001; // Use the port assigned by Heroku or fallback to 5001 for local development
 
 app.use(cors()); /* to jest po to, zeby nasluchiwac inne domeny */
 /*instancja aplikacji express, tak mi kazali*/
@@ -44,7 +44,7 @@ const genres = [
     { "country": "Ukraine", "genre": "Popsa" }
 ];
 /*hardcoded kraje, chce dodac wiecej gatunkuw */
-const API_KEY = 'AIzaSyD6ewd4aauopNQ3ahEQU2TrP97sf2I20cM';
+const API_KEY = process.env.API_KEY;
 /* wykonaj zadanie do yt api*/
 async function fetchYouTubeVideos(query) {
     const response = await fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q=${query}&key=${API_KEY}`);
