@@ -2,20 +2,22 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 
 function App() {
-  const [currentVideo, setCurrentVideo] = useState(null);
-  const [currentInfo, setCurrentInfo] = useState({ country: '', genre: '' });
+  const [currentVideo, setCurrentVideo] = useState(null); /* tworzy zmienną stanu currentInfo oraz funkcję setCurrentInfo do jej aktualizacji */
+  const [currentInfo, setCurrentInfo] = useState({ country: '', genre: '' }); /*hook -  inicjalizuje currentInfo obiektem z pustymi wartościami dla kluczy country i genre */
 
   const shuffleVideo = async () => {
     try {
-      const response = await fetch('https://blooming-sea-22678-d329885364f4.herokuapp.com/genres'); // Use Heroku app URL
+      const response = await fetch('https://blooming-sea-22678-d329885364f4.herokuapp.com/genres'); /* link do backendu */
       const data = await response.json();
       const randomVideo = data.videos[Math.floor(Math.random() * data.videos.length)];
       setCurrentVideo(randomVideo);
       setCurrentInfo({ country: data.country, genre: data.genre });
     } catch (error) {
-      console.error('Error fetching data:', error);
+      console.error('error fetching data:', error);
     }
   };
+
+  /*wybierz losowy filmik z tablicy genres, zaokraglij index do 0, pobierz ten filmik. Wyswietl go w komponencie i łap bledy */
 
   useEffect(() => {
     shuffleVideo();

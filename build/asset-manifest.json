@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/worstgenreseu/static/css/main.f855e6bc.css",
-    "main.js": "/worstgenreseu/static/js/main.158b72a9.js",
+    "main.js": "/worstgenreseu/static/js/main.053b38c1.js",
     "static/js/453.12103384.chunk.js": "/worstgenreseu/static/js/453.12103384.chunk.js",
     "index.html": "/worstgenreseu/index.html",
     "main.f855e6bc.css.map": "/worstgenreseu/static/css/main.f855e6bc.css.map",
-    "main.158b72a9.js.map": "/worstgenreseu/static/js/main.158b72a9.js.map",
+    "main.053b38c1.js.map": "/worstgenreseu/static/js/main.053b38c1.js.map",
     "453.12103384.chunk.js.map": "/worstgenreseu/static/js/453.12103384.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.f855e6bc.css",
-    "static/js/main.158b72a9.js"
+    "static/js/main.053b38c1.js"
   ]
 }

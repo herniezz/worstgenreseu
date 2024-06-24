@@ -1,12 +1,14 @@
 import express from 'express';
 import cors from 'cors';
 import fetch from 'node-fetch';
+require('dotenv').config();
 
-const app = express();
-const port = process.env.PORT || 5001; // Use the port assigned by Heroku or fallback to 5001 for local development
+
+const app = express(); /*instancja aplikacji express*/
+const port = process.env.PORT || 5001; /*pobiera wartość portu z env var*/
 
 app.use(cors()); /* to jest po to, zeby nasluchiwac inne domeny */
-/*instancja aplikacji express, tak mi kazali*/
+/*tablica z krajami i gatunkami*/
 const genres = [
     { "country": "Germany", "genre": "Schlager" },
     { "country": "Poland", "genre": "Disco Polo" },
@@ -53,11 +55,11 @@ async function fetchYouTubeVideos(query) {
 }
 /* hej, wywolaj mi fetchyoutubevideos() aby pobrac filmiki z geta*/
 app.get('/genres', async (req, res) => {
-    const genre = genres[Math.floor(Math.random() * genres.length)];
+    const genre = genres[Math.floor(Math.random() * genres.length)]; /*generuje losową liczbę od 0 do długości tablicy genres, pobiera obiekt gatunku muzycznego z losowego indeksu.*/
     const videos = await fetchYouTubeVideos(genre.genre);
     res.json({ country: genre.country, genre: genre.genre, videos });
 });
 
 app.listen(port, () => {
     console.log(`Server running at http://localhost:${port}`);
-});
+}); /*zwrot informacje czy serwer dziala*/
